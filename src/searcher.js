@@ -28,8 +28,9 @@ function renderCardImage(arr) {
 };
 
 async function onSubmitSearch(e) {
-  e.preventDefault();
-  searchQuery = e.currentTarget.searchQuery.value;
+    e.preventDefault();
+    if (e.currentTarget.searchQuery.value.trim() === '') { return };
+  searchQuery = e.currentTarget.searchQuery.value.trim();
   currentPage = 1;
 
   if (searchQuery === '') {
